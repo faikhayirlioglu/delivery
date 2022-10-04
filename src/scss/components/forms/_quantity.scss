@@ -1,0 +1,118 @@
+.quantity {
+    display: block;
+    position: relative;
+    background: $white;
+    border-radius: 4px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.12);
+    $input-selector: "input[type=text], input[type=number]";
+
+    #{$input-selector} {
+        margin: 0;
+        width: 100%;
+        z-index: 10;
+        height: rem(42);
+        border: none;
+        outline: none;
+        color: $black;
+        text-align: center;
+        font-weight: 400;
+        font-size: rem(13);
+        line-height: rem(20);
+        padding: rem(8) rem(36);
+        border-radius: 4px;
+        position: relative;
+        background: transparent;
+        display: block;
+        vertical-align: middle;
+        @include placeholder(transparent);
+        opacity: 0;
+        transition: box-shadow .3s;
+
+        &::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &:focus,
+        &:active {
+            opacity: 1;
+            outline: none;
+            @include placeholder(transparent);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.24);
+            transition: box-shadow  .3s;
+        }
+
+
+        &.error {
+            border-color: red !important;
+        }
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        display: none;
+    }
+
+    &__placeholder {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        color: #B5B5B5;
+        text-align: center;
+        position: absolute;
+        padding: rem(8) rem(40);
+    }
+
+    &__button {
+        top: 0;
+        z-index: 50;
+        font-size: 0;
+        line-height: 0;
+        border: none;
+        outline: none;
+        width: rem(36);
+        height: rem(42);
+        cursor: pointer;
+        position: absolute;
+        background: transparent;
+
+        &:after,
+        &:before {
+            top: calc(50% - 1px);
+            left: calc(50% - 6px);
+            z-index: 10;
+            content: '';
+            width: 12px;
+            height: 2px;
+            background: $blue;
+            position: absolute;
+        }
+
+        &--minus {
+            left: 0;
+        }
+
+        &--plus {
+            right: 0;
+
+            &:after {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &--focus {
+
+        #{$input-selector} {
+            opacity: 1;
+        }
+
+        .quantity__placeholder {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}

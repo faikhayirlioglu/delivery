@@ -1,0 +1,68 @@
+input:not([type=checkbox]):not([type=radio]),
+textarea,
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input, textarea {
+    outline: none;
+    &:focus:required:invalid { border-color: red }
+    &:required:valid { border-color: green }
+}
+
+option::selection {background: #ccc;}
+option::-moz-selection {background: #ccc;}
+option::-webkit-selection {background: #ccc; color:#fff;}
+
+.field {
+    display: block;
+    position: relative;
+    background: transparent;
+    $input-selector: "input[type=text], input[type=email], input[type=password], textarea";
+
+    #{$input-selector} {
+        margin: 0;
+        width: 100%;
+        height: rem(48);
+        outline: none;
+        color: #5b3d38;
+        box-shadow: none;
+        font-weight: 400;
+        font-size: rem(16);
+        line-height: rem(24);
+        padding: rem(11) rem(16);
+        background: #fff;
+        display: inline-block;
+        vertical-align: middle;
+        border: rem(1) solid #5b3d38;
+        border-radius: $border-radius;
+        @include placeholder(#909090);
+
+        &::-ms-clear {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+            @include placeholder(transparent);
+            box-shadow: 0 0 0 size-rel(5px) rgba(92, 173, 255, 0.5);
+        }
+
+
+        &.error {
+            border-color: red !important;
+        }
+    }
+
+
+    textarea {
+        height: auto;
+        resize: none;
+    }
+
+}

@@ -1,0 +1,31 @@
+[data-collapse] {
+
+    &.open {
+
+        [data-collapse-content] {
+            opacity: 1;
+        }
+
+        [data-collapse-control] {
+
+            &:before {
+                content: attr(data-collapse-close);
+            }
+        }
+    }
+}
+
+[data-collapse-content] {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    will-change: max-height;
+    transition: all 0.3s ease-out;
+}
+
+[data-collapse-control] {
+
+    &:before {
+        content: attr(data-collapse-open);
+    }
+}

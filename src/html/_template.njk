@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  {% block head %}
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="images/dest/preview.jpg">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.min.css">
+  {% endblock %}
+</head>
+<body>
+<div class="root" data-fullscreen>
+    {% block header %}
+
+    {% endblock %}
+    {% block main %}
+
+    {% endblock %}
+    {% block footer %}
+
+    {% endblock %}
+</div>
+  {% block scripts %}
+      <script src="js/app.min.js"></script>
+  {% endblock %}
+</body>
+</html>
